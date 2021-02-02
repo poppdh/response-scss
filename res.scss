@@ -1,0 +1,38 @@
+$breakpoints:(
+    'd1420':(max-width:1420px),
+    'd1000':(max-width:1240px),
+    'd960':(max-width:1119px),
+    'd720':(max-width:991px),
+    'd594':(max-width:767px),
+    'd326':(max-width:620px),
+    'd90':(max-width:356px),
+) !default;
+
+@mixin respond-to($breakpoint) {
+    @if map-has-key($breakpoints, $breakpoint) {
+        @media #{inspect(map-get($breakpoints, $breakpoint))} {
+            @content;
+        }
+    }
+}
+
+
+
+ @include respond-to('d1000') {
+    width: 1000px;
+}
+@include respond-to('d960') {
+    width: 960px;
+}
+@include respond-to('d720') {
+    width: 720px;
+}
+@include respond-to('d594') {
+    width: 594px;
+}
+@include respond-to('d326') {
+    width: 326px;
+}
+@include respond-to('d90') {
+    width: 90%;
+}
